@@ -1,0 +1,229 @@
+html {
+  font-size: 20px;
+  font-family:  Georgia, Times, 'Times New Roman', serif;
+  color: rgb(165, 142, 65);
+  background: black;
+  background: url(https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80) center;
+  background-size: cover;
+}
+
+html,body {
+  margin:0;
+  padding:0;
+  height:100%;
+  width:100%;
+  font-family: sans-serif;
+ }
+
+.background-div {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8); 
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+
+.title, .title-span {
+  padding-top: 0.5%;
+  font-size: 60px;
+  font-family: dancing script;
+  color: rgb(190, 169, 97);
+  text-align: center;
+}
+
+
+.library {
+  /* width: 1600px; */
+  font-size: 0.9rem;
+  padding: 1 5px 0 0 0;
+  
+}
+
+.library th {
+  color: rgb(172, 105, 46);
+  /* background-color: rgba(253, 164, 100, 0.308); */
+  min-height: 60px;
+font-size: 1.6rem;
+font-weight: 600;
+padding: 22px 25px 10px 0 ;
+border-bottom: 2px solid rgba(114, 76, 43, 0.8);
+font-family: dancing script, Merriweather Sans;
+}
+
+th.head-title {
+  min-width: 40rem;
+}
+
+.library td {
+  padding: 12px 20px;
+}
+
+.main-box {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+
+span {
+  font-family: Berkshire Swash, Merriweather Sans;
+  font-size: 1.2rem;
+  text-shadow: 0 0 30px rgb(0, 0, 0); 
+
+}
+
+.title-span {
+  text-shadow: 0 0 20px rgb(36, 24, 3); 
+}
+
+.add-book {
+  justify-content: center;
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 30px;
+  font-family: molle;
+  font-family: dancing script;
+  background-color: transparent;
+  color: rgb(190, 169, 97);
+  outline: none;
+  border: none;
+  z-index: 1;
+}
+
+.add-pop-up {
+  bottom: -999px;
+  opacity: 0;
+  appearance: none;
+  transition: ease-in;
+  justify-content: center;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: rgba(0, 0, 0, 1);
+  color: rgb(190, 169, 97);
+  font-size: 30px;
+  font-family: dancing script;
+  outline: none;
+  border: 2px solid  rgba(190, 168, 97, 0.1);
+  border-radius: 30px;
+  z-index: 0;
+}
+
+.active {
+  opacity: 1;
+  z-index: 2;
+  bottom: 20px;
+
+}
+
+.add-pop-up-description {
+  color: rgb(172, 105, 46);
+  justify-content: center;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.close-pop-up {
+  position: absolute;
+  right: 35px;
+  width: min-content;
+  height: min-content;
+  background-color: transparent;
+  color: rgb(248, 199, 108);
+  outline: none;
+  border: none; 
+  font-size: 1rem;
+}
+
+.add-this {
+  width: 90px;
+  position: absolute;
+  margin: 10px 0 0 0;
+  right: 30px;
+  padding: 0.3rem;
+  justify-content: center;
+  font-size: 1.8rem;
+  align-items: center;
+  text-align: center;
+  text-justify: auto;
+  font-family: dancing script;
+  background-color: transparent;
+  color: rgb(172, 105, 46);
+  outline: none;
+  border: none; 
+}
+
+.sp-book-delete {
+  background-color: transparent;
+  color: rgb(172, 105, 46);
+  outline: none;
+  border: none; 
+  font-size: 1.1rem;
+}
+
+.sp-book-delete:hover {
+  color: rgb(202, 20, 20);
+  text-shadow: 0 0 15px rgb(202, 20, 20);
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.add-book:hover {
+  text-shadow: 0 0 30px rgb(209, 159, 83);
+  z-index: 3;
+}
+
+.add-this:hover,  .close-pop-up:hover  {
+  text-shadow: 0 0 15px rgb(209, 159, 83);
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  font-size: 1rem;
+  width: 20rem;
+  background-color: rgb(224, 214, 182);
+  margin-right: 40px;
+}
+
+#pages-input {
+  margin-right: 10px;
+  margin-top: 30px;
+  width: 70px;
+  /* padding-right: 20px; */
+}
+
+input[type="checkbox"] {
+  display: none;
+  cursor: pointer;
+}
+
+label.check-mark {
+  margin-left: 10px;
+}  
+  
+  input.checkmark-read + label:before {
+    color:  rgb(202, 20, 20);
+    content: "⬜";
+    cursor: pointer;
+
+  }
+
+  input.checkmark-read:checked + label:before {
+    color:  rgb(105, 218, 30);
+    content: "✓";
+    cursor: pointer;
+
+  }

@@ -10,7 +10,7 @@
 <body>
   <div class="background-div">
     <div class="main-box">
-      <div class="title">📚 <br> <span class="title-span"> The  Bookshelf </span> <br> </div>
+      <div class="title"> <br> <span class="title-span"> The  Bookshelf </span> <br> </div>
       <table class="library">
       </table>
           <div class="add-pop-up">
@@ -30,7 +30,6 @@
              
           </div>
       <button class="add-book">📖 <br>Add  Book </button>
-    
     </div>
   </div>
 
@@ -106,13 +105,10 @@ addBookFormButton.addEventListener('click', function() {
     const bookToAdd = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.checked)
   bookToAdd.addToLibrary();
   titleInput.value = authorInput.value = pagesInput.value = ''; readInput.checked = false;
-  console.log(myLibrary);
   populateLibrary(myLibrary, library);
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
   popUp.classList.remove('active');
 });
-
-
 
 function makeRemovable() {
 const deleteBookButton = Array.from(document.querySelectorAll('button.sp-book-delete'));

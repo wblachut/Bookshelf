@@ -216,7 +216,7 @@ label.check-mark {
   
   input.checkmark-read + label:before {
     color:  rgb(202, 20, 20);
-    content: "⬜";
+    content: "☐";
     cursor: pointer;
 
   }

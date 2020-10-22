@@ -42,22 +42,25 @@
   const closeAddBook = document.querySelector('.close-pop-up')
   const addBookFormButton = document.querySelector('.add-this');
 
+class Book {
+  constructor(name = name, author = author, pages = 0, read = false) {
+    this.name = name
+    this.author = author
+    this.pages = pages
+    this.read = read
+  }
 
-function Book(name = name, author = author, pages = 0, read = false) {
-  this.name = name
-  this.author = author,
-  this.pages = pages,
-  this.read = read,
-  this.info = function() {
+  info() {
     let status = '' 
-    if (this.read === 'true') {
-      status = 'already read';
-    } else {
-      status = 'not read yet';
-    } 
+     if (this.read === 'true') {
+       status = 'already read';
+     } else {
+       status = 'not read yet';
+     } 
     return infoString = `${name} by ${author}, ${pages} pages, ${status}`
   }
-  this.addToLibrary = function() {
+
+  addToLibrary() {
     myLibrary.push(this)
   }
 }
@@ -80,12 +83,12 @@ function populateLibrary(myArray = [], populatedPlace) {
              <td> <button class="sp-book-delete" id="del-button${i}"> ✗ </button> </td>
           </tr>
               `; }).join('');
-              makeRemovable(); toggleStatus();
+          makeRemovable();
+          toggleStatus();
 }
-
-// const theHobbit = new Book('Hobbit', 'J.R.R. Tolkien', '295', 'true');
-// const theWitcher = new Book('The Witcher', 'A. Sapkowski', '420', 'true');
-// const theAncient = new Book('The Ancient', 'R. A. Salvatore', '552', 'false');
+// const theHobbit = new Book('Hobbit', 'J.R.R. Tolkien', '295', true);
+// const theWitcher = new Book('The Witcher', 'A. Sapkowski', '420', true);
+// const theAncient = new Book('The Ancient', 'R. A. Salvatore', '552', false);
 // theHobbit.addToLibrary();
 // theWitcher.addToLibrary();
 // theAncient.addToLibrary();
@@ -121,26 +124,14 @@ deleteBookButton.forEach(button => button.addEventListener('click', function(e) 
 
 function toggleStatus() {
   const checkBoxes = Array.from(document.querySelectorAll('input.table-mark'));
-  // checkBoxes.forEach(checkbox => checkbox[i].checked ? myLibrary[i.read] === 'true' : myLibrary[i.read] === 'false');
   checkBoxes.forEach(checkbox => checkbox.addEventListener('click', function(e) {
-   // debugger;
-    //  console.log(e.target);
     let id = checkbox.id.slice(4);
       console.log(id, myLibrary[id].read, typeof(myLibrary[id].read))  
         myLibrary[id].read = !myLibrary[id].read;
         localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
     console.log(myLibrary[id].read, typeof(myLibrary[id].read))  
     }));
-
-    // document.getElementById(`book${checkbox[i]}`)
-    // myLibrary.forEach(book => book.read ==  )
-  // console.log(checkbox[i].checked)
-  // populateLibrary(myLibrary, library);
-  //console.log(myLibrary[i].read);})
   };
-
-
-
 
 populateLibrary(myLibrary, library);
 makeRemovable();

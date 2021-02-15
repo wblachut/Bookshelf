@@ -9,7 +9,7 @@
 <body>
   <div class="background-div">
     <div class="main-box">
-      <div class="title">📚 <br> <span class="title-span"> The  Bookshelf </span> <br> </div>
+      <div class="title"> <br> <span class="title-span"> The  Bookshelf </span> <br> </div>
       <table class="library">
           </table>
           <div class="add-pop-up">
@@ -84,6 +84,7 @@ function populateLibrary(myArray = [], populatedList) {
              <td> <button class="sp-book-delete" id="del-button${i}"> ✗ </button> </td>
           </tr>
               `; }).join('');
+              makeRemovable();
               // localStorage.setItem('books', myLibrary);
 }
 
@@ -96,40 +97,42 @@ addBook.addEventListener('click', function(e) {popUp.classList.add('active');});
 closeAddBook.addEventListener('click', function(e) {popUp.classList.remove('active');});
 
 addBookFormButton.addEventListener('click', function() {
-  let bookToAdd = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
+  const bookToAdd = new Book(titleInput.value, authorInput.value, pagesInput.value, `${readInput.checked}`);
+  console.log(readInput.checked);
   bookToAdd.addToLibrary();
-  console.log(myLibrary);
   populateLibrary(myLibrary, library);
-  titleInput.reset();
-  //  authorInput.reset(); pagesInput.reset(); readInput.reset();
+  titleInput.value = '';
+  authorInput.value = '';
+  pagesInput.value = '';
+  readInput.checked = false;
   popUp.classList.remove('active');
-  populateLibrary(myLibrary, library);
 });
 
 
 function makeRemovable() {
 let deleteBookButton = Array.from(document.querySelectorAll('button.sp-book-delete'));
 deleteBookButton.forEach(button => button.addEventListener('click', function(e) {
-  // id = parseInt(elementClicked.parentNode.id) // - not working(why?) alternative
-  id = (e.target.id).slice(10);
-  console.log(id);
-  myLibrary.splice(id, 1);
+  bookId = (e.target.id).slice(10);
+  console.log(bookId);
+  myLibrary.splice(bookId, 1);
+  console.table(myLibrary);
   populateLibrary(myLibrary, library);
 }));
 }
 
 function toggleStatus() {
   let checkBoxes = Array.from(document.querySelectorAll('input.table-mark'));
-  checkBoxes.forEach(checkbox => checkbox[i].checked ? myLibrary[i.read] === 'true' : myLibrary[i.read] === 'false');
-  checkBoxes.forEach(checkbox => function() {
-    console.log(checkbox[i]);
-    // document.getElementById(`book${checkbox[i]}`)
-    // myLibrary.forEach(book => book.read ==  )
-  // console.log(checkbox[i].checked)
-  populateLibrary(myLibrary, library);
-  console.log(myLibrary[i].read);
-  }
-  )};
+  checkBoxes.forEach((checkbox, i) => checkbox[i].checked ? myLibrary[i.read] === 'true' : myLibrary[i.read] === 'false');
+  // checkBoxes.forEach(checkbox => function() {
+  //   console.log(checkbox[i]);
+  //   // document.getElementById(`book${checkbox[i]}`)
+  //   // myLibrary.forEach(book => book.read ==  )
+  // // console.log(checkbox[i].checked)
+  // populateLibrary(myLibrary, library);
+  // console.log(myLibrary[i].read);
+  // }
+  // )
+};
 
 
 populateLibrary(myLibrary, library);

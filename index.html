@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> Virtual Bookshelf 📚 WB </title>
+  <title>WB |The Odin Project| Virtual Bookshelf</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script|Berkshire+Swash|Molle|Merriweather+Sans">
 
@@ -14,7 +14,7 @@
       <table class="library">
       </table>
           <div class="add-pop-up">
-            <div class="add-pop-up-description">Adding new book <button class="close-pop-up">✖️</button></div>
+            <div class="add-pop-up-description">Adding new book <button class="close-pop-up">⨯</button></div>
             <ul>
                 <li><label for="fname"></label>Book title</label></li>
              <div>  </div>
@@ -29,7 +29,7 @@
             </ul>
              
           </div>
-      <button class="add-book">📖 <br>Add  Book </button>
+      <button class="add-book">Add  Book</button>
     </div>
   </div>
 
@@ -93,7 +93,6 @@ function populateLibrary(myArray = [], populatedPlace) {
 // theWitcher.addToLibrary();
 // theAncient.addToLibrary();
 
-// ################ EVENT LISTENERS
 addBook.addEventListener('click', function(e) {
   popUp.classList.add('active');
 });
@@ -115,7 +114,7 @@ addBookFormButton.addEventListener('click', function() {
 
 function makeRemovable() {
 const deleteBookButton = Array.from(document.querySelectorAll('button.sp-book-delete'));
-deleteBookButton.forEach(button => button.addEventListener('click', function(e) {
+deleteBookButton.map(button => button.addEventListener('click', function(e) {
   id = (e.target.id).slice(10);
   myLibrary.splice(id, 1);
   populateLibrary(myLibrary, library);}));
@@ -124,7 +123,7 @@ deleteBookButton.forEach(button => button.addEventListener('click', function(e) 
 
 function toggleStatus() {
   const checkBoxes = Array.from(document.querySelectorAll('input.table-mark'));
-  checkBoxes.forEach(checkbox => checkbox.addEventListener('click', function(e) {
+  checkBoxes.map(checkbox => checkbox.addEventListener('click', function(e) {
     let id = checkbox.id.slice(4);
       console.log(id, myLibrary[id].read, typeof(myLibrary[id].read))  
         myLibrary[id].read = !myLibrary[id].read;

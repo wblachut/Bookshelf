@@ -35,3 +35,4 @@ A small library app. Books are created by a factorial function and stored in a L
 * use Firebase instead of LocalStorage
 * add transitions for creating a book
 * add times read column
+* add percentage display bar for pages already read in the book (IA idea)

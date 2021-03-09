@@ -34,7 +34,7 @@ class Book {
   }
 
   addToLibrary(library = myLibrary) {
-    myLibrary.push(this)
+    library.push(this)
   }
 }
 
@@ -59,7 +59,7 @@ function loadBooksFromFirebase() {
   }).then(() => populateLibrary(myLibrary, library));
 }
 
-function populateLibrary(myArray = [], populatedPlace) {
+function populateLibrary(myArray = [], populatedPlace = {}) {
   const heading = `<tr class="headings">
             <th class="head-title">Title</th>
             <th class="head-author">Author</th>
@@ -123,17 +123,16 @@ function toggleStatus() {
   
 function writeBooksToFirebase(library = myLibrary) {
   const user = auth.currentUser;
-  console.log(user, user.uid);
+  // console.log(user, user.uid);
   const booksData = JSON.stringify(library);
   db.collection("users").doc(user.uid).set({library: booksData})
     .then(() => {
-    console.log("Books successfully written!", library);
+    console.log("Books successfully written!");
 })
 .catch((error) => {
     console.error("Error writing books: ", error);
 });
 }
-
 
 function getDemoLibrary() {
   const theHobbit = new Book('Hobbit', 'J.R.R. Tolkien', '295', true);
@@ -143,9 +142,6 @@ function getDemoLibrary() {
   return demoLibrary
 }
 
-let myLibrary = getDemoLibrary();
-populateLibrary(myLibrary, library);
-
 signInBtn.addEventListener('click', () => {signIn()})
 addBookFormButton.addEventListener('click', addBook);
 addBookBtn.addEventListener('click', function(e) {
@@ -154,3 +150,6 @@ addBookBtn.addEventListener('click', function(e) {
 closeAddBook.addEventListener('click', function(e) {
   popUp.classList.remove('active');
 });
+
+let myLibrary = getDemoLibrary();
+populateLibrary(myLibrary, library);

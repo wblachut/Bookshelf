@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WB |The Odin Project| Virtual Bookshelf</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script|Berkshire+Swash|Molle|Merriweather+Sans">
+
+</head>
+<body>
+  <div class="background-div">
+    <div class="main-box">
+      <button class="add-book">Add Book</button>
+      <div class="user-status">
+        <!-- <img src="user-icon.png" alt='user-image'> -->
+        <div class="user-img"></div>
+        <div class="user-name">Not Signed</div>
+      </div>
+      <button class="sign-in-btn">Sign In with Google</button>
+      <div class="title"> <br> <span class="title-span"> The  Bookshelf </span> <br> </div>
+      <table class="library">
+      </table>
+          <div class="add-pop-up">
+            <div class="add-pop-up-description">Adding new book <button class="close-pop-up">⨯</button></div>
+            <ul>
+                <li><label for="fname"></label>Book title</label></li>
+             <div>  </div>
+                <li><input type="text" id="title-input"></li>
+                Author
+                <li><input type="text" id="author-input"></li>
+            
+            <li><div class="add-pop-up-endline">Pages: <input type="number" id="pages-input"> 
+                <input type="checkbox" id="checkmark-pop-up" class="checkmark-read"> Read
+                <label for="checkmark-pop-up" class="check-mark"></label> <button class="add-this">Add </button>
+                </div ></li>
+            </ul>
+             
+          </div>
+    </div>
+  </div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDEggatLicCVG7nKoCyCaNHLsUMFNfaJyc",
+    authDomain: "bookshelf-library-wb.firebaseapp.com",
+    projectId: "bookshelf-library-wb",
+    storageBucket: "bookshelf-library-wb.appspot.com",
+    messagingSenderId: "165426807681",
+    appId: "1:165426807681:web:2a4e1c31ee7b7e0e191e80",
+    measurementId: "G-YV5FJSS69J"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="script.js"></script>
+</body>
+</html>
